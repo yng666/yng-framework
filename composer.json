@@ -1,0 +1,36 @@
+{
+    "name": "yng/framework",
+    "description": "YngPHP Core Library!",
+    "keywords": [
+        "framework",
+        "yngphp"
+    ],
+    "license": "Apache-2.0",
+    "homepage": "https://www.chinaqe.cm",
+    "authors": [
+        {
+            "name": "yng",
+            "homepage": "https://www.chinaqe.cm"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Yng\\Framework\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
+        "opis/closure": "^3.6"
+    },
+    "extra": {
+        "yng": {
+            "config": {
+                "framework": "publish/http.php"
+            }
+        }
+    }
+}
