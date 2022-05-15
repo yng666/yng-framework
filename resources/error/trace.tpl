@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $throwable->getMessage(); ?></title>
     <style>
@@ -121,48 +122,42 @@
         <aside style="width: 25%; border-right: 1px solid #d5d1d1; overflow-y: scroll; overflow-x: hidden">
             <ul style="list-style-type: none; padding: 0; margin: 0; width: 100%;">
                 <?php
-                    $trace = $throwable->getTrace();
-                    $total = count($trace);
-                    for ($key = 0; $key <= count($trace); $key++) {
-
-                        if (false === isset($trace[$key]['file'])) {
-                            $total--;
-                            continue;
-                        }
-
-                        $errorFile = $trace[$key]['file'];
-                        $file = file($trace[$key]['file']);
-                        $line = $trace[$key]['line'];
-                        $function = $trace[$key]['function'];
-                        $num = $total - $key;
-                        $content = '';
-
-                        for ($i = $line - 15; $i > 0 && $i < $line + 15 && $i < count($file); $i++) {
-                            $code = $file[$i];
-                            $content .= '<span style="color: grey">' . str_pad((string)($i + 1), 3, ' ', STR_PAD_BOTH) . '</span>';
-
-                            if ($i + 1 == $line) {
-                                $code = '
-                                <text style="background-color: white">' . str_replace($function, '<span style="color: red">' . $function . '</span>',
-                                    $file[$i]) . '
-                                </text>
-                                ';
-                            }
-                            
-                            $content .= $code;
-                        }
-
-                        $content = htmlspecialchars($content, 3);
-                        echo "
-                        <li class='file' data-content='{$content}' data-id='{$num}'>
-                            <div class=\"number\">{$num}</div>
-                            <div style='font-size: .9em; word-wrap: break-word; width: 85%; box-sizing: border-box; padding: .5em;'>
-                                <p style='margin: 0 0 .5em 0'>{$errorFile} +{$line}</p>
-                                <b style='margin: 0;'>{$function}</b>
-                            </div>
-                        </li>
-                        ";
-                    }
+                $trace = $throwable->getTrace();
+                $total = count($trace);
+                for ($key = 0; $key <= count($trace); $key++) {
+                if (false === isset($trace[$key]['file'])) {
+                $total--;
+                continue;
+                }
+                $errorFile = $trace[$key]['file'];
+                $file = file($trace[$key]['file']);
+                $line = $trace[$key]['line'];
+                $function = $trace[$key]['function'];
+                $num = $total - $key;
+                $content = '';
+                for ($i = $line - 15; $i > 0 && $i < $line + 15 && $i < count($file); $i++) {
+                $code = $file[$i];
+                $content .= '<span style="color: grey">' . str_pad((string)($i + 1), 3, ' ', STR_PAD_BOTH) . '</span>';
+                if ($i + 1 == $line) {
+                $code = '
+                <text style="background-color: white">' . str_replace($function, '<span style="color: red">' . $function . '</span>',
+                    $file[$i]) . '
+                </text>
+                ';
+                }
+                $content .= $code;
+                }
+                $content = htmlspecialchars($content, 3);
+                echo "
+                <li class='file' data-content='{$content}' data-id='{$num}'>
+                    <div class=\"number\">{$num}</div>
+                    <div style='font-size: .9em; word-wrap: break-word; width: 85%; box-sizing: border-box; padding: .5em;'>
+                        <p style='margin: 0 0 .5em 0'>{$errorFile} +{$line}</p>
+                        <b style='margin: 0;'>{$function}</b>
+                    </div>
+                </li>
+                ";
+                }
                 ?>
             </ul>
         </aside>
