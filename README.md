@@ -33,7 +33,7 @@ composer create-project yng/yng yng
 启动服务
 
 ```sh
-cd tp
+cd yng
 php yng run
 ```
 
