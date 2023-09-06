@@ -1,0 +1,26 @@
+<?php
+declare (strict_types = 1);
+
+namespace {%namespace%};
+
+use Yng\Console\Command;
+use Yng\Console\Input;
+use Yng\Console\Input\Argument;
+use Yng\Console\Input\Option;
+use Yng\Console\Output;
+
+class {%className%} extends Command
+{
+    protected function configure()
+    {
+        // 指令配置
+        $this->setName('{%commandName%}')
+            ->setDescription('the {%commandName%} command');
+    }
+
+    protected function execute(Input $input, Output $output)
+    {
+        // 指令输出
+        $output->writeln('{%commandName%}');
+    }
+}

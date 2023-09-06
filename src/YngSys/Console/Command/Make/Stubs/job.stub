@@ -1,0 +1,28 @@
+<?php
+namespace {%namespace%};
+
+use Yng\Queue\Job;
+
+class {%className%}
+{
+    /**
+     * 事件处理
+     *
+     * @return mixed
+     */
+    public function fire(Job $job,array $data)
+    {
+        //doing something
+    }
+
+    /**
+     * 失败处理
+     *
+     * @return mixed
+     */
+    public function failed(array $data)
+    {
+        //doing something
+    }
+
+}
