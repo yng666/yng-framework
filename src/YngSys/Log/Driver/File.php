@@ -65,6 +65,9 @@ class File implements LogHandlerInterface
         // 日志信息封装
         $time = \DateTime::createFromFormat('0.u00 U', microtime())->setTimezone(new \DateTimeZone(date_default_timezone_get()))->format($this->config['time_format']);
 
+        // 地区
+        $area = date_default_timezone_get();
+
         foreach ($log as $type => $val) {
             $message = [];
             foreach ($val as $msg) {
@@ -74,7 +77,7 @@ class File implements LogHandlerInterface
 
                 $message[] = $this->config['json'] ?
                 json_encode(['time' => $time, 'type' => $type, 'msg' => $msg], $this->config['json_options']) :
-                sprintf($this->config['format'], $time, $type, $msg);
+                sprintf($this->config['format'], $time, $area,$type, $msg);
             }
 
             if (true === $this->config['apart_level'] || in_array($type, $this->config['apart_level'])) {
