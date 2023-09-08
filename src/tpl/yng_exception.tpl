@@ -161,7 +161,6 @@ if (!function_exists('echo_value')) {
             text-align: center;
             margin-top: 3rem;
         }
-        
         /* Exception Info */
         .exception {
             margin-top: 20px;
@@ -172,9 +171,16 @@ if (!function_exists('echo_value')) {
             border-bottom: 0 none;
             line-height: 18px;
             font-size:16px;
+            background-color: rgb(227 145 145);
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
             font-family: Consolas,"Liberation Mono",Courier,Verdana,"微软雅黑",serif;
+        }
+        .exception .message .error_msg{
+            color: #fff;
+        }
+        .exception .message a{
+            color: rgb(37 76 98);
         }
         .exception .code{
             float: left;
@@ -187,7 +193,7 @@ if (!function_exists('echo_value')) {
         }
         .exception .source-code{
             padding: 6px;
-            border: 1px solid #ddd;
+            border: 1px solid rgb(247, 103, 103);
 
             background: #f9f9f9;
             overflow-x: auto;

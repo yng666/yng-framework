@@ -62,7 +62,7 @@ class App extends Container
      * 当前应用类库命名空间
      * @var string
      */
-    protected $namespace = 'app';
+    protected $namespace = 'App';
 
     /**
      * 应用根目录
@@ -523,8 +523,8 @@ class App extends Container
         }
 
         // 加载全局事件
-        if (is_file($appPath .'Enent' . DIRECTORY_SEPARATOR . 'Event.php')) {
-            $this->loadEvent(include $appPath .'Enent' . DIRECTORY_SEPARATOR. 'Event.php');
+        if (is_file($appPath .'Event' . DIRECTORY_SEPARATOR . 'Event.php')) {
+            $this->loadEvent(include $appPath .'Event' . DIRECTORY_SEPARATOR. 'Event.php');
         }
 
         // 加载AppService服务

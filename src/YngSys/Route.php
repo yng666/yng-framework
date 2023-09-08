@@ -61,7 +61,7 @@ class Route
         // URL伪静态后缀
         'url_html_suffix'       => 'html',
         // 访问控制器层名称
-        'controller_layer'      => 'controller',
+        'controller_layer'      => 'Controller',
         // 空控制器名
         'empty_controller'      => 'Error',
         // 是否使用控制器后缀
