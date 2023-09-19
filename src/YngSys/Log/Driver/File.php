@@ -192,7 +192,7 @@ class File implements LogHandlerInterface
     {
         if (is_file($destination) && floor($this->config['file_size']) <= filesize($destination)) {
             try {
-                rename($destination, dirname($destination) . DIRECTORY_SEPARATOR  . date('Y-m-d H:i:s').'back'. rand(1,100) . '-' . basename($destination));
+                rename($destination, dirname($destination) . DIRECTORY_SEPARATOR  . date('Y-m-d H:i:s').'-back'. rand(1,100) . '-' . basename($destination));
             } catch (\Exception $e) {
                 //
             }
